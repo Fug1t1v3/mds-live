@@ -1,28 +1,28 @@
 <html>
 
-	<head>
-		<meta charset='utf-8' />
-		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-		<meta name="description" content="MDS-Live" />
-		<title>MDS-Live</title>
-		<style>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="MDS-Live" />
+    <title>MDS-Live</title>
+    <style>
    h1 {
     font-family: Verdana, Arial, Helvetica, sans-serif; 
     font-size: 7pt;
-	color: #848484;
-	margin: 0;
+  color: #848484;
+  margin: 0;
    } 
    p {
     font-family: Verdana, Arial, Helvetica, sans-serif; 
     font-size: 11pt;
-	color: #FFFFFF;
-	margin: 0;
+  color: #FFFFFF;
+  margin: 0;
    }
    p2 {
     font-family: Verdana, Arial, Helvetica, sans-serif; 
     font-size: 11pt;
-	color: #848484;
-	margin: 0;
+  color: #848484;
+  margin: 0;
    }
   </style>
   <style type="text/css">
@@ -60,65 +60,69 @@ outline: none; /* Убираем границу вокруг ссылок  */
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 </script>
 <script>
-$(document).ready(function()
-  {
+// sc2tv.ru Channel ID:
+sc2tvID = 99357
+$(document).ready(function() {
   $("#btn1").click(function(){
     $("#chat").animate({height:"100%"});
   });
   $("#btn2").click(function(){
     $("#chat").animate({height:"0px"});
   });
-});
-</script>
-<script>
-$(document).ready(function() {
-$("#help").hide();
-$("#help").delay(10000);
-$("#help").slideDown('slow');
-$("#help").delay(15000);
-$("#help").slideUp();
-$("#btn4").click(function(){
-	$("#help").stop();
-	$("#help").hide();
+  $("#help").hide();
+  $("#help").delay(10000);
+  $("#help").slideDown('slow');
+  $("#help").delay(15000);
+  $("#help").slideUp();
+  $("#btn4").click(function(){
+    $("#help").stop();
+    $("#help").hide();
   });
+  set_chat_height();
 });
+$(window).resize(function() {
+  set_chat_height();
+});
+function set_chat_height() {
+  $('#chat').attr('src','http://chat.sc2tv.ru/index.htm?channelId='+sc2tvID+'&stop=&width=230&height='+$('#chat').height());
+}
 </script>
-	</head>
+  </head>
 
 <body text="#AE0000" style="margin: 0px; padding:0px; height: 100%; width: 100%; overflow:hidden;" bgcolor="#000000">
 <div style=" height: 100%">
     <table style="width: 100%; height: 100%" cellspacing="0"  cellpadding="0">
         <tr>
-			<td width="230">
-				<center>
-				<p><img src="img/logo.jpg" alt="" height="92" width="230"></p>
-				<p>Плеер: <INPUT width="115px" id="btn3" TYPE="button" Value="#1" onClick="parent.CONTENT.location='content.html';"><INPUT id="btn3" TYPE="button" Value="#2" onClick="parent.CONTENT.location='lo.html';"></p>
-				 <p2>AdBlock может скрывать чат!<p2>
-				 <p>Чат: <button id="btn1" style="width:95px;height:20">показать</button><button id="btn2" style="width:95px;height:20">скрыть</button></p>
-				</center>
-			</td>
-		</tr>
-		<tr>
+      <td width="230">
+        <center>
+        <p><img src="img/logo.jpg" alt="" height="92" width="230"></p>
+        <p>Плеер: <INPUT width="115px" id="btn3" TYPE="button" Value="#1" onClick="parent.CONTENT.location='content.html';"><INPUT id="btn3" TYPE="button" Value="#2" onClick="parent.CONTENT.location='lo.html';"></p>
+         <p2>AdBlock может скрывать чат!<p2>
+         <p>Чат: <button id="btn1" style="width:95px;height:20">показать</button><button id="btn2" style="width:95px;height:20">скрыть</button></p>
+        </center>
+      </td>
+    </tr>
+    <tr>
             <td background="img/nochat.jpg" align="center" style="vertical-align:top;" height="100%" width="230">
-				<iframe id="chat" style="overflow:hidden;height:100%;width:100%;margin:0px;padding:0px;" 
+        <iframe id="chat" style="overflow:hidden;height:100%;width:100%;margin:0px;padding:0px;" 
                         width="100%" height="100%" frameborder="0" scrolling="no" align="top"
-                        src="http://chatadelic.net/frame.php?chat=22276&type=compact"></iframe>
+                        src="about:blank></iframe>
             </td>
-		</tr>
-		<tr>
-			<td  width="230">
-				<div id="help">
-				<p><img alt="" src="img/help.png"></img></p>
-				<p><button id="btn4" style="width:230px;height:20">скрыть</button></p>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td  width="230">
-				<h1>Сайт и трансляция - <a href="http://vk.com/id42471960">Владимир Гречин</a>. Сервис вещания - CyberGame.tv</h1>
-			</td>
-		</tr>
-	</table>
+    </tr>
+    <tr>
+      <td  width="230">
+        <div id="help">
+        <p><img alt="" src="img/help.png"></img></p>
+        <p><button id="btn4" style="width:230px;height:20">скрыть</button></p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td  width="230">
+        <h1>Сайт и трансляция - <a href="http://vk.com/id42471960">Владимир Гречин</a>. Сервис вещания - CyberGame.tv</h1>
+      </td>
+    </tr>
+  </table>
 </div>
 </body>
 </html>
